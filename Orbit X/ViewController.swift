@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var messageField: NSTextField!
     @IBOutlet weak var largeField: NSTextField!
     @IBOutlet weak var privKey: NSTextField!
+    @IBOutlet weak var decryptWarningText: NSTextField!
     
     @IBAction func browseBtn(_ sender: NSButton) {
         let dialog = NSOpenPanel();
@@ -56,9 +57,14 @@ class ViewController: NSViewController {
     
     @IBAction func decryptBtn(_ sender: NSButton) {
         let orbit = Orbit()
-        let prKey = Character(pubKey.stringValue)
-        let decMessage = orbit.decryptMessage(encmessage: messageField.stringValue, fKey: prKey)
-        largeField.stringValue = decMessage
+        if (pubKey.stringValue.count == 1) {
+            let prKey = Character(pubKey.stringValue)
+            let decMessage = orbit.decryptMessage(encmessage: messageField.stringValue, fKey: prKey)
+            largeField.stringValue = decMessage
+        }
+        else {
+            decryptWarningText.stringValue = "1 key only!"
+        }
     }
     
     

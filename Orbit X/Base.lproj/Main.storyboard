@@ -735,11 +735,14 @@
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5v-Ph-IjC">
                                 <rect key="frame" x="66" y="70" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="File..." drawsBackground="YES" id="lu6-v8-L45">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="File..." drawsBackground="YES" id="lu6-v8-L45">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="performClick:" target="da1-NZ-7Fp" id="x7W-tf-glu"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="azz-vc-iQd">
                                 <rect key="frame" x="60" y="33" width="92" height="32"/>
@@ -812,16 +815,19 @@
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wH0-hj-WoV">
                                 <rect key="frame" x="66" y="101" width="80" height="21"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Message..." drawsBackground="YES" id="nSN-vx-VQ2">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Message..." drawsBackground="YES" id="nSN-vx-VQ2">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="performClick:" target="da1-NZ-7Fp" id="jTN-eG-nIP"/>
+                                </connections>
                             </textField>
                             <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-l3-Tcz">
                                 <rect key="frame" x="333" y="70" width="77" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Public key..." drawsBackground="YES" usesSingleLineMode="YES" id="p2O-9x-Dre">
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Public key..." drawsBackground="YES" usesSingleLineMode="YES" id="p2O-9x-Dre">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -830,7 +836,7 @@
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                                 <connections>
-                                    <action selector="performClick:" target="O0R-Pd-ctU" id="T5y-kO-Oc7"/>
+                                    <action selector="performClick:" target="O0R-Pd-ctU" id="mT5-wA-EP8"/>
                                 </connections>
                             </secureTextField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bB-BD-dtW">
@@ -851,9 +857,19 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cu9-Yh-iuV">
+                                <rect key="frame" x="333" y="106" width="79" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" id="N3G-Oy-Z7V">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="decryptWarningText" destination="cu9-Yh-iuV" id="PDG-e8-XcQ"/>
                         <outlet property="fileField" destination="h5v-Ph-IjC" id="uNz-Dp-NRp"/>
                         <outlet property="largeField" destination="6bB-BD-dtW" id="h2u-FY-bw8"/>
                         <outlet property="messageField" destination="wH0-hj-WoV" id="MbO-1c-Ejh"/>
