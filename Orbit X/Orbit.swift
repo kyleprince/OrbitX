@@ -8,6 +8,29 @@
 
 import Foundation
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* Class: Orbit, Namespace: Galaxxy
+* Description: Isolated Encryption Class
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+* ex. let orbit = Orbit(); Initializer builds the key
+*      <object>.encryptMessage(message)
+*      <object>.decryptMessage(message, orbit.privKey)
+*
+*  Create a new instance to get a new key
+*  Encrypt & Decrypt had to be modified for Swift so they take
+*  and return Strings as before, but XOR is done at Byte level
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*
+* Key_Store Methods
+*
+* keyStore() : store the key used by that instance and return
+*              whole database of keys to write back
+* call keyStoreIndex() immediately after to get the index
+* keyStoreReturn() : return the specified key given the index
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 class Orbit {
     var privKey: Character
     
@@ -62,6 +85,14 @@ class Orbit {
         var database = keys
         database.append(privKey)
         return database
+    }
+    
+    func keyStoreindex(keys: String) -> Int {
+        var count = 0
+        if (keys.count != 0) {
+            count = keys.count - 1
+        }
+        return count
     }
     
     func keyStoreReturn(keys: String, pubKey: Int) -> Character {
