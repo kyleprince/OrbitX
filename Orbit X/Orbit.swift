@@ -9,8 +9,8 @@
 import Foundation
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* Class: Orbit, Namespace: Galaxxy
-* Description: Isolated Encryption Class
+* Class: Orbit
+* Description: Isolated Encryption Class - Ported from C#
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 * ex. let orbit = Orbit(); Initializer builds the key

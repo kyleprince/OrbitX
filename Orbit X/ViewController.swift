@@ -12,11 +12,11 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var fileField: NSTextField!
     @IBOutlet weak var pubKey: NSSecureTextField!
-    @IBOutlet weak var progressBar1: NSProgressIndicator!
     @IBOutlet weak var messageField: NSTextField!
     @IBOutlet weak var largeField: NSTextField!
     @IBOutlet weak var privKey: NSTextField!
     @IBOutlet weak var decryptWarningText: NSTextField!
+    @IBOutlet weak var progressBar: NSProgressIndicator!
     
     @IBAction func browseBtn(_ sender: NSButton) {
         let dialog = NSOpenPanel();
@@ -44,19 +44,19 @@ class ViewController: NSViewController {
     
     
     @IBAction func encryptBtn(_ sender: NSButton) {
-        
         let orbit = Orbit()
-        progressBar1.increment(by: 20)
+        progressBar.startAnimation(orbit)
         let encMessage = orbit.encryptMessage(message: messageField.stringValue)
-        progressBar1.increment(by: 80)
         largeField.stringValue = encMessage
         privKey.stringValue = String(orbit.privKey)
+        //progressBar.stopAnimation(orbit)
         
     }
     
     
     @IBAction func decryptBtn(_ sender: NSButton) {
         let orbit = Orbit()
+        progressBar.startAnimation(orbit)
         if (pubKey.stringValue.count == 1) {
             let prKey = Character(pubKey.stringValue)
             let decMessage = orbit.decryptMessage(encmessage: messageField.stringValue, fKey: prKey)
@@ -65,6 +65,7 @@ class ViewController: NSViewController {
         else {
             decryptWarningText.stringValue = "1 key only!"
         }
+        progressBar.stopAnimation(orbit)
     }
     
     
